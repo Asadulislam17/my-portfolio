@@ -4,9 +4,9 @@ A modern, responsive personal portfolio website built with **React** and **Tailw
 
 ---
 
-## 🌐 Live Demo
-👉 https://your-live-link.com (Vercel/Netlify link বসাবে)
-
+👉 ## 🌐 Live Demo
+👉 https://my-portfolio-ten-rho-64.vercel.app/
+[🚀 View Live Portfolio](https://my-portfolio-ten-rho-64.vercel.app/)
 ---
 
 ## ✨ Features
