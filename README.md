@@ -36,7 +36,7 @@ A modern, responsive personal portfolio website built with **React** and **Tailw
 
 ```bash
 # clone repository
-git clone https://github.com/your-username/my-portfolio.git
+git clone https://github.com/Asadulislam17/my-portfolio.git
 
 # 2. Go to project folder
 cd my-portfolio
