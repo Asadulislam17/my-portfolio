@@ -56,40 +56,53 @@ const SKILLS = {
 // ─────────────────────────────────────────────────────────────
 // ③ PROJECTS
 // ─────────────────────────────────────────────────────────────
+// const PROJECTS = [
+//   {
+//     title:       "Raw PHP & MySQL POS System",
+//     description: "A fully functional point-of-sale system built from scratch — no frameworks. Inventory management, real-time sales tracking, role-based access for cashiers & admins, and printable receipts.",
+//     stack:       ["PHP", "MySQL", "HTML", "CSS", "JavaScript"],
+//     gradient:    "from-blue-600 via-blue-500 to-cyan-400",
+//     icon:        "🛒",
+//     featured:    true,
+//   },
+//   {
+//     title:       "Laravel E-Commerce API",
+//     description: "RESTful API backend for an e-commerce platform. Covers authentication, product catalogue, cart management, and Stripe payment integration.",
+//     stack:       ["Laravel", "PHP", "MySQL", "Stripe"],
+//     gradient:    "from-violet-600 via-purple-500 to-fuchsia-400",
+//     icon:        "🛍️",
+//     featured:    false,
+//   },
+//   {
+//     title:       "Spring Boot Task Manager",
+//     description: "Microservice built with Java Spring Boot exposing CRUD endpoints consumed by a React SPA, secured with JWT authentication.",
+//     stack:       ["Spring Boot", "Java", "PostgreSQL", "React"],
+//     gradient:    "from-emerald-600 via-teal-500 to-green-400",
+//     icon:        "📋",
+//     featured:    false,
+//   },
+//   {
+//     title:       "React Admin Dashboard",
+//     description: "Responsive admin dashboard with analytics charts, sortable data tables, and full dark-mode support — zero external UI library.",
+//     stack:       ["React", "Tailwind CSS", "Recharts"],
+//     gradient:    "from-orange-500 via-amber-500 to-yellow-400",
+//     icon:        "📊",
+//     featured:    false,
+//   },
+// ];
+
 const PROJECTS = [
   {
-    title:       "Raw PHP & MySQL POS System",
-    description: "A fully functional point-of-sale system built from scratch — no frameworks. Inventory management, real-time sales tracking, role-based access for cashiers & admins, and printable receipts.",
-    stack:       ["PHP", "MySQL", "HTML", "CSS", "JavaScript"],
-    gradient:    "from-blue-600 via-blue-500 to-cyan-400",
-    icon:        "🛒",
+    title:       "Lahomes - Real Estate Platform",
+    description: "আপনার পছন্দের বাড়ি, ফ্ল্যাট বা প্লট দ্রুত ও সহজে খুঁজে পাওয়ার একটি রিয়েল এস্টেট প্ল্যাটফর্ম। এতে রয়েছে ভেরিফায়েড লিস্টিং এবং সরাসরি এজেন্ট যোগাযোগের সুবিধা।",
+    stack:       ["Laravel", "React", "MySQL", "Inertia.js", "Blade"],
+    gradient:    "from-emerald-600 via-teal-500 to-cyan-400",
+    icon:        "🏠",
     featured:    true,
-  },
-  {
-    title:       "Laravel E-Commerce API",
-    description: "RESTful API backend for an e-commerce platform. Covers authentication, product catalogue, cart management, and Stripe payment integration.",
-    stack:       ["Laravel", "PHP", "MySQL", "Stripe"],
-    gradient:    "from-violet-600 via-purple-500 to-fuchsia-400",
-    icon:        "🛍️",
-    featured:    false,
-  },
-  {
-    title:       "Spring Boot Task Manager",
-    description: "Microservice built with Java Spring Boot exposing CRUD endpoints consumed by a React SPA, secured with JWT authentication.",
-    stack:       ["Spring Boot", "Java", "PostgreSQL", "React"],
-    gradient:    "from-emerald-600 via-teal-500 to-green-400",
-    icon:        "📋",
-    featured:    false,
-  },
-  {
-    title:       "React Admin Dashboard",
-    description: "Responsive admin dashboard with analytics charts, sortable data tables, and full dark-mode support — zero external UI library.",
-    stack:       ["React", "Tailwind CSS", "Recharts"],
-    gradient:    "from-orange-500 via-amber-500 to-yellow-400",
-    icon:        "📊",
-    featured:    false,
-  },
+    url:         "https://lahomes.devfoliox.com/"
+  }
 ];
+
 
 // ─────────────────────────────────────────────────────────────
 // ④ GOALS
@@ -435,13 +448,19 @@ function Skills() {
 // ═════════════════════════════════════════════════════════════
 //  REUSABLE: ProjectCard
 // ═════════════════════════════════════════════════════════════
-function ProjectCard({ title, description, stack, gradient, icon, featured }) {
+// এখানে url প্রোপার্টি ডি-স্ট্রাকচার (destructure) করে নেওয়া হয়েছে
+function ProjectCard({ title, description, stack, gradient, icon, featured, url }) {
   return (
-    <div className={`relative rounded-2xl overflow-hidden border transition-all duration-300 group
-      hover:-translate-y-1 hover:shadow-2xl
-      bg-white border-gray-100 hover:shadow-gray-200/60
-      dark:bg-gray-950/80 dark:border-gray-800 dark:hover:shadow-gray-950/60
-      ${featured ? "ring-2 ring-blue-500/25 dark:ring-blue-500/20" : ""}`}>
+    <a 
+      href={url}
+      target="_blank" 
+      rel="noopener noreferrer"
+      className={`block relative rounded-2xl overflow-hidden border transition-all duration-300 group
+        hover:-translate-y-1 hover:shadow-2xl no-underline cursor-pointer
+        bg-white border-gray-100 hover:shadow-gray-200/60
+        dark:bg-gray-950/80 dark:border-gray-800 dark:hover:shadow-gray-950/60
+        ${featured ? "ring-2 ring-blue-500/25 dark:ring-blue-500/20" : ""}`}
+    >
 
       {/* Featured badge */}
       {featured && (
@@ -477,9 +496,10 @@ function ProjectCard({ title, description, stack, gradient, icon, featured }) {
           ))}
         </div>
       </div>
-    </div>
+    </a>
   );
 }
+
 
 // ═════════════════════════════════════════════════════════════
 //  COMPONENT: Projects
@@ -507,7 +527,7 @@ function Projects() {
 function Goals() {
   const stats = [
     { value: "3+",   label: "Years Coding"     },
-    { value: "10+",  label: "Projects Built"   },
+    { value: "5",  label: "Projects Built"   },
     { value: "4",    label: "Core Tech Stacks" },
     { value: "Open", label: "To Freelance"     },
   ];
